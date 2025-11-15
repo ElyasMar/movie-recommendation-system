@@ -48,7 +48,7 @@ The system compares three approaches:
 3. **Hybrid** (60% Content-Based + 40% Collaborative)  
    - Strengths: Balanced recommendations  
 
-### 📊 Key Metrics
+### Key Metrics
 
 | Model | Accuracy | Genre Match | Rating Match | Precision@10 | Speed |
 |-------|----------|-------------|--------------|--------------|-------|
@@ -56,7 +56,7 @@ The system compares three approaches:
 | Collaborative | 72.31% | 52.78% | **90%** | 72.78% | **2.33ms** |
 | Hybrid | 72.31% | 52.78% | 90% | 72.78% | 11.01ms |
 
-### 🏆 Recommended Model: Content-Based
+### Recommended Model: Content-Based
 - Best overall accuracy and genre matching  
 - Fast enough for real-time use (9.6ms)  
 - Precision@10: 86.11%  
