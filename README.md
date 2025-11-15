@@ -35,21 +35,36 @@ A machine learning based movie recommendation system using collaborative filteri
 
 ## Model Performance
 
-The movie recommendation system uses three approaches: **Content-Based**, **Collaborative**, and **Hybrid** recommenders.  
+The system compares three approaches:
 
-- **Content-Based:** Uses TF-IDF vectorization of movie attributes and cosine similarity. Provides diverse recommendations across genres.  
-- **Collaborative:** Uses Nearest Neighbors (KNN) on normalized numerical features like popularity, vote average, and vote count. Produces highly similar recommendations but less genre diversity.  
-- **Hybrid:** Combines Content-Based and Collaborative recommendations, achieving a balance of similarity and diversity.  
+1. **Content-Based Filtering** (TF-IDF + Cosine Similarity)  
+   - Uses movie overview, genres, keywords, cast, director  
+   - Strengths: High genre match, explainable recommendations  
 
-**Evaluation Results:**
+2. **Collaborative Filtering** (KNN)  
+   - Uses popularity, vote average, vote count  
+   - Strengths: Very fast, good rating match  
 
-- Success Rate: 100% for all models  
-- Average Response Time: Collaborative (fastest, 7.02 ms), Content-Based (11.11 ms), Hybrid (16.29 ms)  
-- Average Similarity Score: Collaborative (0.998), Content-Based (0.237), Hybrid (0.402)  
-- Genre Diversity: Hybrid (highest, 0.386), Content-Based (0.263), Collaborative (0.0)  
+3. **Hybrid** (60% Content-Based + 40% Collaborative)  
+   - Strengths: Balanced recommendations  
 
-**Conclusion:**  
-The **Hybrid recommender** is the best overall, combining the strengths of both approaches to provide relevant and diverse recommendations.
+### 📊 Key Metrics
+
+| Model | Accuracy | Genre Match | Rating Match | Precision@10 | Speed |
+|-------|----------|-------------|--------------|--------------|-------|
+| Content-Based | **83.44%** | **96.11%** | 66.11% | **86.11%** | 9.6ms |
+| Collaborative | 72.31% | 52.78% | **90%** | 72.78% | **2.33ms** |
+| Hybrid | 72.31% | 52.78% | 90% | 72.78% | 11.01ms |
+
+### 🏆 Recommended Model: Content-Based
+- Best overall accuracy and genre matching  
+- Fast enough for real-time use (9.6ms)  
+- Precision@10: 86.11%  
+
+**Notes:**  
+- Collaborative is faster (2.33ms) but less accurate overall  
+- Hybrid balances both approaches but doesn’t outperform individually
+
 
 
 ## Author
