@@ -42,7 +42,7 @@ def main():
         movies_df = content_model.movies
         
     except Exception as e:
-        st.error(f"❌ Error loading models: {e}")
+        st.error(f"Error loading models: {e}")
         st.info("Please run `python src/train.py` first to train the models.")
         return
     
@@ -66,7 +66,7 @@ def main():
     )
     
     # Tabs
-    tab1, tab2, tab3 = st.tabs(["🔍 Get Recommendations", "📊 Browse Movies", "ℹ️ About"])
+    tab1, tab2, tab3 = st.tabs(["Get Recommendations", "Browse Movies", "About"])
     
     # Tab 1: Recommendations
     with tab1:
@@ -100,7 +100,7 @@ def main():
         with col2:
             st.write("")  # Spacing
             st.write("")  # Spacing
-            recommend_button = st.button("🎯 Get Recommendations", type="primary", use_container_width=True)
+            recommend_button = st.button("Get Recommendations", type="primary", use_container_width=True)
         
         # Show recommendations
         if recommend_button and selected_movie:
@@ -114,11 +114,11 @@ def main():
                     
                     col1, col2, col3 = st.columns(3)
                     with col1:
-                        st.metric("Rating", f"⭐ {movie_details['vote_average']:.1f}/10")
+                        st.metric("Rating", f" {movie_details['vote_average']:.1f}/10")
                     with col2:
-                        st.metric("Votes", f"🗳️ {movie_details['vote_count']:,}")
+                        st.metric("Votes", f" {movie_details['vote_count']:,}")
                     with col3:
-                        st.metric("Popularity", f"🔥 {movie_details['popularity']:.0f}")
+                        st.metric("Popularity", f" {movie_details['popularity']:.0f}")
                     
                     st.write("**Genres:**", ", ".join(movie_details['genres']))
                     st.write("**Overview:**", movie_details['overview'])
@@ -159,7 +159,7 @@ def main():
                         )[:n_recommendations]
                     
                     # Display recommendations
-                    st.subheader(f"🎯 Top {len(recommendations)} Recommendations ({method})")
+                    st.subheader(f"Top {len(recommendations)} Recommendations ({method})")
                     
                     for i, (title, score) in enumerate(recommendations, 1):
                         rec_details = content_model.get_movie_details(title)
@@ -227,7 +227,7 @@ def main():
         )
 
     with tab3:
-        st.header("ℹ️ About This System")
+        st.header("About This System")
         
         st.markdown("""
         ### Project Overview
@@ -235,7 +235,7 @@ def main():
         
         # Statistics
         st.divider()
-        st.subheader("📊 Dataset Statistics")
+        st.subheader("Dataset Statistics")
         
         col1, col2, col3, col4 = st.columns(4)
         

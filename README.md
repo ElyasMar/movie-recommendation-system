@@ -35,10 +35,22 @@ A machine learning based movie recommendation system using collaborative filteri
 
 ## Model Performance
 
-Models compared:
-- Cosine Similarity (Content-Based)
-- Nearest Neighbors (Collaborative)
-- TF-IDF Vectorization
+The movie recommendation system uses three approaches: **Content-Based**, **Collaborative**, and **Hybrid** recommenders.  
+
+- **Content-Based:** Uses TF-IDF vectorization of movie attributes and cosine similarity. Provides diverse recommendations across genres.  
+- **Collaborative:** Uses Nearest Neighbors (KNN) on normalized numerical features like popularity, vote average, and vote count. Produces highly similar recommendations but less genre diversity.  
+- **Hybrid:** Combines Content-Based and Collaborative recommendations, achieving a balance of similarity and diversity.  
+
+**Evaluation Results:**
+
+- Success Rate: 100% for all models  
+- Average Response Time: Collaborative (fastest, 7.02 ms), Content-Based (11.11 ms), Hybrid (16.29 ms)  
+- Average Similarity Score: Collaborative (0.998), Content-Based (0.237), Hybrid (0.402)  
+- Genre Diversity: Hybrid (highest, 0.386), Content-Based (0.263), Collaborative (0.0)  
+
+**Conclusion:**  
+The **Hybrid recommender** is the best overall, combining the strengths of both approaches to provide relevant and diverse recommendations.
+
 
 ## 👥 Author
 
