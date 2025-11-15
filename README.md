@@ -52,6 +52,6 @@ The movie recommendation system uses three approaches: **Content-Based**, **Coll
 The **Hybrid recommender** is the best overall, combining the strengths of both approaches to provide relevant and diverse recommendations.
 
 
-## 👥 Author
+## Author
 
 Ilias Cherkaoui
