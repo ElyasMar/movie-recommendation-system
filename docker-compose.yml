@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  movie-recommender:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: movie-recommender
+    ports:
+      - "5000:5000"
+      - "8501:8501"
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:5000/api/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+```
+
+---
+
+### File 17: `.dockerignore`
+
+**Location:** Root directory  
+**Purpose:** Exclude files from Docker build
+```
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+
+# Data
+data/raw/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Notebooks
+notebooks/
+*.ipynb
+
+# Tests
+tests/
+.pytest_cache/
+
+# Documentation
+docs/
+README.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
